@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+service OrienteeringProblemService {
+    rpc Optimize(OrienteeringProblemRequest) returns (OrienteeringProblemResponse) {}
+}
+
+message OrienteeringProblemRequest {
+    repeated Item items = 1;
+    double time_limit = 2;
+}
+
+message OrienteeringProblemResponse {
+    repeated Item collected_items = 1;
+}
+
+message Item {
+    uint32 x = 1;
+    uint32 y = 2;
+}
