@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x12op-interface.proto\"F\n\x1aOrienteeringProblemRequest\x12\x14\n\x05items\x18\x01 \x03(\x0b\x32\x05.Item\x12\x12\n\ntime_limit\x18\x02 \x01(\x01\"=\n\x1bOrienteeringProblemResponse\x12\x1e\n\x0f\x63ollected_items\x18\x01 \x03(\x0b\x32\x05.Item\"\x1c\n\x04Item\x12\t\n\x01x\x18\x01 \x01(\r\x12\t\n\x01y\x18\x02 \x01(\r2e\n\x1aOrienteeringProblemService\x12G\n\x08Optimize\x12\x1b.OrienteeringProblemRequest\x1a\x1c.OrienteeringProblemResponse\"\x00\x62\x06proto3'
+  serialized_pb=b'\n\x12op-interface.proto\"F\n\x1aOrienteeringProblemRequest\x12\x14\n\x05items\x18\x01 \x03(\x0b\x32\x05.Item\x12\x12\n\ntime_limit\x18\x02 \x01(\x01\"=\n\x1bOrienteeringProblemResponse\x12\x1e\n\x0f\x63ollected_items\x18\x01 \x03(\x0b\x32\x05.Item\"(\n\x04Item\x12\n\n\x02id\x18\x01 \x01(\r\x12\t\n\x01x\x18\x02 \x01(\x05\x12\t\n\x01y\x18\x03 \x01(\x05\x32\x65\n\x1aOrienteeringProblemService\x12G\n\x08Optimize\x12\x1b.OrienteeringProblemRequest\x1a\x1c.OrienteeringProblemResponse\"\x00\x62\x06proto3'
 )
 
 
@@ -105,15 +105,22 @@ _ITEM = _descriptor.Descriptor(
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='x', full_name='Item.x', index=0,
+      name='id', full_name='Item.id', index=0,
       number=1, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='y', full_name='Item.y', index=1,
-      number=2, type=13, cpp_type=3, label=1,
+      name='x', full_name='Item.x', index=1,
+      number=2, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='y', full_name='Item.y', index=2,
+      number=3, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -131,7 +138,7 @@ _ITEM = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=157,
-  serialized_end=185,
+  serialized_end=197,
 )
 
 _ORIENTEERINGPROBLEMREQUEST.fields_by_name['items'].message_type = _ITEM
@@ -171,8 +178,8 @@ _ORIENTEERINGPROBLEMSERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=187,
-  serialized_end=288,
+  serialized_start=199,
+  serialized_end=300,
   methods=[
   _descriptor.MethodDescriptor(
     name='Optimize',

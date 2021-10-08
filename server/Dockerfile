@@ -20,6 +20,8 @@ RUN git clone -b v1.32.0 https://github.com/grpc/grpc && \
     cmake ../.. && \
     make -j 8
 
-# Generate interface code
+COPY protos/op-interface.proto .
+
+# Generate interface code in the server
 RUN protoc --cpp_out=. op-interface.proto && \
     protoc --grpc_out=. --plugin=protoc-gen-grpc=/grpc/cmake/build/grpc_cpp_plugin op-interface.proto

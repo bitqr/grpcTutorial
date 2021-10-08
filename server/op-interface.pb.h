@@ -487,25 +487,35 @@ class Item PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kXFieldNumber = 1,
-    kYFieldNumber = 2,
+    kIdFieldNumber = 1,
+    kXFieldNumber = 2,
+    kYFieldNumber = 3,
   };
-  // uint32 x = 1;
-  void clear_x();
-  ::PROTOBUF_NAMESPACE_ID::uint32 x() const;
-  void set_x(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  // uint32 id = 1;
+  void clear_id();
+  ::PROTOBUF_NAMESPACE_ID::uint32 id() const;
+  void set_id(::PROTOBUF_NAMESPACE_ID::uint32 value);
   private:
-  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_x() const;
-  void _internal_set_x(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_id() const;
+  void _internal_set_id(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // uint32 y = 2;
-  void clear_y();
-  ::PROTOBUF_NAMESPACE_ID::uint32 y() const;
-  void set_y(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  // int32 x = 2;
+  void clear_x();
+  ::PROTOBUF_NAMESPACE_ID::int32 x() const;
+  void set_x(::PROTOBUF_NAMESPACE_ID::int32 value);
   private:
-  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_y() const;
-  void _internal_set_y(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_x() const;
+  void _internal_set_x(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // int32 y = 3;
+  void clear_y();
+  ::PROTOBUF_NAMESPACE_ID::int32 y() const;
+  void set_y(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_y() const;
+  void _internal_set_y(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
   // @@protoc_insertion_point(class_scope:Item)
@@ -515,8 +525,9 @@ class Item PROTOBUF_FINAL :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::uint32 x_;
-  ::PROTOBUF_NAMESPACE_ID::uint32 y_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 id_;
+  ::PROTOBUF_NAMESPACE_ID::int32 x_;
+  ::PROTOBUF_NAMESPACE_ID::int32 y_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_op_2dinterface_2eproto;
 };
@@ -637,42 +648,62 @@ OrienteeringProblemResponse::collected_items() const {
 
 // Item
 
-// uint32 x = 1;
-inline void Item::clear_x() {
-  x_ = 0u;
+// uint32 id = 1;
+inline void Item::clear_id() {
+  id_ = 0u;
 }
-inline ::PROTOBUF_NAMESPACE_ID::uint32 Item::_internal_x() const {
+inline ::PROTOBUF_NAMESPACE_ID::uint32 Item::_internal_id() const {
+  return id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 Item::id() const {
+  // @@protoc_insertion_point(field_get:Item.id)
+  return _internal_id();
+}
+inline void Item::_internal_set_id(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  
+  id_ = value;
+}
+inline void Item::set_id(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_id(value);
+  // @@protoc_insertion_point(field_set:Item.id)
+}
+
+// int32 x = 2;
+inline void Item::clear_x() {
+  x_ = 0;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Item::_internal_x() const {
   return x_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::uint32 Item::x() const {
+inline ::PROTOBUF_NAMESPACE_ID::int32 Item::x() const {
   // @@protoc_insertion_point(field_get:Item.x)
   return _internal_x();
 }
-inline void Item::_internal_set_x(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+inline void Item::_internal_set_x(::PROTOBUF_NAMESPACE_ID::int32 value) {
   
   x_ = value;
 }
-inline void Item::set_x(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+inline void Item::set_x(::PROTOBUF_NAMESPACE_ID::int32 value) {
   _internal_set_x(value);
   // @@protoc_insertion_point(field_set:Item.x)
 }
 
-// uint32 y = 2;
+// int32 y = 3;
 inline void Item::clear_y() {
-  y_ = 0u;
+  y_ = 0;
 }
-inline ::PROTOBUF_NAMESPACE_ID::uint32 Item::_internal_y() const {
+inline ::PROTOBUF_NAMESPACE_ID::int32 Item::_internal_y() const {
   return y_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::uint32 Item::y() const {
+inline ::PROTOBUF_NAMESPACE_ID::int32 Item::y() const {
   // @@protoc_insertion_point(field_get:Item.y)
   return _internal_y();
 }
-inline void Item::_internal_set_y(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+inline void Item::_internal_set_y(::PROTOBUF_NAMESPACE_ID::int32 value) {
   
   y_ = value;
 }
-inline void Item::set_y(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+inline void Item::set_y(::PROTOBUF_NAMESPACE_ID::int32 value) {
   _internal_set_y(value);
   // @@protoc_insertion_point(field_set:Item.y)
 }

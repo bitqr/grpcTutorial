@@ -14,6 +14,7 @@ message OrienteeringProblemResponse {
 }
 
 message Item {
-    uint32 x = 1;
-    uint32 y = 2;
+    uint32 id = 1;
+    int32 x = 2;
+    int32 y = 3;
 }

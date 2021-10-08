@@ -21,8 +21,8 @@ A solution (the response of the server) would be an ordered list of collected it
 
 Write the CMakeLists.txt file, to include the grpc dependency.
 Install protobuf for C++.
-
-Generate the code (see Dockerfile for instructions).
+Generate the code.
+All the commands are in the Dockerfile
 
 Write the server code and run it.
 

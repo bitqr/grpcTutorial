@@ -94,6 +94,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_op_2dinterface_2eproto::offset
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::Item, id_),
   PROTOBUF_FIELD_OFFSET(::Item, x_),
   PROTOBUF_FIELD_OFFSET(::Item, y_),
 };
@@ -113,11 +114,11 @@ const char descriptor_table_protodef_op_2dinterface_2eproto[] PROTOBUF_SECTION_V
   "\n\022op-interface.proto\"F\n\032OrienteeringProb"
   "lemRequest\022\024\n\005items\030\001 \003(\0132\005.Item\022\022\n\ntime"
   "_limit\030\002 \001(\001\"=\n\033OrienteeringProblemRespo"
-  "nse\022\036\n\017collected_items\030\001 \003(\0132\005.Item\"\034\n\004I"
-  "tem\022\t\n\001x\030\001 \001(\r\022\t\n\001y\030\002 \001(\r2e\n\032Orienteerin"
-  "gProblemService\022G\n\010Optimize\022\033.Orienteeri"
-  "ngProblemRequest\032\034.OrienteeringProblemRe"
-  "sponse\"\000b\006proto3"
+  "nse\022\036\n\017collected_items\030\001 \003(\0132\005.Item\"(\n\004I"
+  "tem\022\n\n\002id\030\001 \001(\r\022\t\n\001x\030\002 \001(\005\022\t\n\001y\030\003 \001(\0052e\n"
+  "\032OrienteeringProblemService\022G\n\010Optimize\022"
+  "\033.OrienteeringProblemRequest\032\034.Orienteer"
+  "ingProblemResponse\"\000b\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_op_2dinterface_2eproto_deps[1] = {
 };
@@ -128,7 +129,7 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_op_
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_op_2dinterface_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_op_2dinterface_2eproto = {
-  false, false, descriptor_table_protodef_op_2dinterface_2eproto, "op-interface.proto", 296,
+  false, false, descriptor_table_protodef_op_2dinterface_2eproto, "op-interface.proto", 308,
   &descriptor_table_op_2dinterface_2eproto_once, descriptor_table_op_2dinterface_2eproto_sccs, descriptor_table_op_2dinterface_2eproto_deps, 3, 0,
   schemas, file_default_instances, TableStruct_op_2dinterface_2eproto::offsets,
   file_level_metadata_op_2dinterface_2eproto, 3, file_level_enum_descriptors_op_2dinterface_2eproto, file_level_service_descriptors_op_2dinterface_2eproto,
@@ -585,16 +586,16 @@ Item::Item(::PROTOBUF_NAMESPACE_ID::Arena* arena)
 Item::Item(const Item& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&x_, &from.x_,
+  ::memcpy(&id_, &from.id_,
     static_cast<size_t>(reinterpret_cast<char*>(&y_) -
-    reinterpret_cast<char*>(&x_)) + sizeof(y_));
+    reinterpret_cast<char*>(&id_)) + sizeof(y_));
   // @@protoc_insertion_point(copy_constructor:Item)
 }
 
 void Item::SharedCtor() {
-  ::memset(&x_, 0, static_cast<size_t>(
+  ::memset(&id_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&y_) -
-      reinterpret_cast<char*>(&x_)) + sizeof(y_));
+      reinterpret_cast<char*>(&id_)) + sizeof(y_));
 }
 
 Item::~Item() {
@@ -628,9 +629,9 @@ void Item::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  ::memset(&x_, 0, static_cast<size_t>(
+  ::memset(&id_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&y_) -
-      reinterpret_cast<char*>(&x_)) + sizeof(y_));
+      reinterpret_cast<char*>(&id_)) + sizeof(y_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -642,17 +643,24 @@ const char* Item::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::inter
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // uint32 x = 1;
+      // uint32 id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
-          x_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // uint32 y = 2;
+      // int32 x = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
-          y_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          x_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // int32 y = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
+          y_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -684,16 +692,22 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // uint32 x = 1;
-  if (this->x() != 0) {
+  // uint32 id = 1;
+  if (this->id() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_x(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_id(), target);
   }
 
-  // uint32 y = 2;
+  // int32 x = 2;
+  if (this->x() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(2, this->_internal_x(), target);
+  }
+
+  // int32 y = 3;
   if (this->y() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_y(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(3, this->_internal_y(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -712,17 +726,24 @@ size_t Item::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // uint32 x = 1;
-  if (this->x() != 0) {
+  // uint32 id = 1;
+  if (this->id() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+        this->_internal_id());
+  }
+
+  // int32 x = 2;
+  if (this->x() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
         this->_internal_x());
   }
 
-  // uint32 y = 2;
+  // int32 y = 3;
   if (this->y() != 0) {
     total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
         this->_internal_y());
   }
 
@@ -757,6 +778,9 @@ void Item::MergeFrom(const Item& from) {
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
+  if (from.id() != 0) {
+    _internal_set_id(from._internal_id());
+  }
   if (from.x() != 0) {
     _internal_set_x(from._internal_x());
   }
@@ -789,9 +813,9 @@ void Item::InternalSwap(Item* other) {
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(Item, y_)
       + sizeof(Item::y_)
-      - PROTOBUF_FIELD_OFFSET(Item, x_)>(
-          reinterpret_cast<char*>(&x_),
-          reinterpret_cast<char*>(&other->x_));
+      - PROTOBUF_FIELD_OFFSET(Item, id_)>(
+          reinterpret_cast<char*>(&id_),
+          reinterpret_cast<char*>(&other->id_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata Item::GetMetadata() const {
